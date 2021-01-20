@@ -4,6 +4,7 @@ package com.tpexp.TPMaven;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
 
 public class MongoExample {
@@ -32,6 +33,13 @@ public class MongoExample {
 	        BasicDBObject updateObject = new BasicDBObject();
 	        updateObject.put("$set", newDocument);
 	        collection.update(query, updateObject);
+	        //lecture des donnees
+	        BasicDBObject searchQuery = new BasicDBObject();
+	        searchQuery.put("name", "John");
+	        DBCursor cursor = collection.find(searchQuery);
+	        while (cursor.hasNext()) {
+	            System.out.println(cursor.next());
+	        }
 		} catch (Exception e) {
 			System.out.println(e);
 		}
