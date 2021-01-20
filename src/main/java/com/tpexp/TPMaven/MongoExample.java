@@ -40,6 +40,10 @@ public class MongoExample {
 	        while (cursor.hasNext()) {
 	            System.out.println(cursor.next());
 	        }
+	        //suppression des donnes
+	        BasicDBObject deleteQuery = new BasicDBObject();
+	        deleteQuery.put("name", "John");
+	        collection.remove(deleteQuery);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
