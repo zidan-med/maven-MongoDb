@@ -11,6 +11,8 @@ public class MongoExample {
 			DB database = mongoClient.getDB("myMongoDb");
 			System.out.println("vous êtes connecté");
 			mongoClient.getDatabaseNames().forEach(System.out::println);
+			database.createCollection("customers", null);
+			database.getCollectionNames().forEach(System.out::println);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
