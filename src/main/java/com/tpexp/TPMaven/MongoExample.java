@@ -10,10 +10,11 @@ public class MongoExample {
 			MongoClient mongoClient = new MongoClient("localhost", 27017);
 			DB database = mongoClient.getDB("myMongoDb");
 			System.out.println("vous êtes connecté");
+			mongoClient.getDatabaseNames().forEach(System.out::println);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		System.out.println("le serveur est prêt");
-
+		
     }
+    
 }
